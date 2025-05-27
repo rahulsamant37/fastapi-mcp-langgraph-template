@@ -1,0 +1,75 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "API Development Container",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": [
+		"../compose-dev.yaml"
+	],
+	"service": "backend",
+	"workspaceFolder": "/app",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"IronGeek.vscode-env",
+				"cweijan.vscode-redis-client",
+				"emeraldwalk.RunOnSave",
+				"mohamed-nouri.websocket-client",
+				"ms-azuretools.vscode-docker",
+				"usernamehw.errorlens",
+				"Gruntfuggly.todo-tree",
+				"ms-python.black-formatter",
+				"ms-python.debugpy",
+				"ms-python.isort",
+				"ms-python.python"
+			],
+			"settings": {
+				"files.exclude": {
+					"**/.venv": true
+				},
+				"workbench.colorCustomizations": {
+					"editorUnnecessaryCode.border": "#ff0000"
+				},
+				"explorer.confirmDelete": false,
+				"editor.cursorBlinking": "expand",
+				"editor.cursorSmoothCaretAnimation": "on",
+				"todo-tree.highlights.enabled": false,
+				"window.density.editorTabHeight": "compact",
+				"workbench.activityBar.location": "top",
+				"editor.formatOnSave": true,
+				"files.insertFinalNewline": true,
+				"files.trimFinalNewlines": true,
+				"[python]": {
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "always",
+						"source.unusedImports": "always"
+					}
+				},
+				"editor.rulers": [
+					{
+						"column": 80,
+						"color": "#303030"
+					},
+					{
+						"column": 72,
+						"color": "#242424"
+					}
+				],
+				"black-formatter.args": [
+					"--line-length=80"
+				],
+				"emeraldwalk.runonsave": {
+					"commands": [
+						{
+							"match": "((packages)|(requirements))\\.txt",
+							"isAsync": true,
+							"cmd": "sort -o ${file} ${file}"
+						}
+					]
+				},
+				"python.analysis.autoImportCompletions": true
+			}
+		}
+	}
+}
