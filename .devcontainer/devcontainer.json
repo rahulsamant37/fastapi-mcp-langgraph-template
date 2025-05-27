@@ -39,6 +39,7 @@
 				"editor.formatOnSave": true,
 				"files.insertFinalNewline": true,
 				"files.trimFinalNewlines": true,
+				"python.venvPath": "/app/.venv/bin/python",
 				"[python]": {
 					"editor.formatOnSave": true,
 					"editor.codeActionsOnSave": {
