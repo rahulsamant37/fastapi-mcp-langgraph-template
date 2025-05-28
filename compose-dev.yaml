@@ -2,9 +2,8 @@ services:
   backend:
     image: backend:dev
     build:
-      context: ./backend
+      context: .
+      dockerfile: ./backend/Dockerfile
     entrypoint: bash -c "sleep infinity"
-    env_file:
-      - ./envs/backend.env
     volumes:
       - ./backend:/app
