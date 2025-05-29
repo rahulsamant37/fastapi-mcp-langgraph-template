@@ -6,7 +6,7 @@
 	"dockerComposeFile": [
 		"../compose-dev.yaml"
 	],
-	"service": "backend",
+	"service": "api",
 	"workspaceFolder": "/app",
 	"customizations": {
 		"vscode": {

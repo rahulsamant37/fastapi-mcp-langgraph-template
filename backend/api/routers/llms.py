@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 from sse_starlette.sse import EventSourceResponse
 
-from app.dependencies import LLMDep
+from api.dependencies import LLMDep
 
-router = APIRouter()
+router = APIRouter(tags=["chat"])
 
 
 async def stream(query: str, llm: LLMDep):
@@ -11,6 +11,7 @@ async def stream(query: str, llm: LLMDep):
         yield dict(data=chunk)
 
 
-@router.get("/chat/completions", tags=["/chat"])
+@router.get("/chat/completions")
 async def completions(query: str, llm: LLMDep):
+    """Stream completions via Server Sent Event"""
     return EventSourceResponse(stream(query, llm))
