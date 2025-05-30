@@ -8,3 +8,4 @@ COPY ./envs/backend.env /opt/.env
 COPY ./backend/api /app/api
 COPY ./backend/shared_mcp /app/shared_mcp
 ENV PYTHONPATH /app:$PYTHONPATH
+ENTRYPOINT ["uv", "run", "fastapi", "run", "api/main.py"]

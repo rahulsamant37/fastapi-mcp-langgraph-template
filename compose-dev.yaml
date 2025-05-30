@@ -1,6 +1,6 @@
 services:
   api:
-    image: api:dev
+    image: api:prod
     build:
       context: .
       dockerfile: ./backend/api/Dockerfile
@@ -15,27 +15,12 @@ services:
       - ./backend/shared_mcp:/app/shared_mcp
 
   mcp:
-    image: mcp:dev
+    image: mcp:prod
     build:
       context: .
       dockerfile: ./backend/mcp/Dockerfile
     env_file:
       - ./envs/shared_mcp.env
-    entrypoint: bash -c "uv run mcp/main.py"
     volumes:
       - ./backend/mcp:/app/mcp
       - ./backend/shared_mcp:/app/shared_mcp
-
-  api-builder:
-    image: api:prod
-    build:
-      dockerfile_inline: |
-        FROM api:dev
-        ENTRYPOINT ["uv", "run", "fastapi", "run", "api/main.py"]
-
-  mcp-builder:
-    image: mcp:prod
-    build:
-      dockerfile_inline: |
-        FROM mcp:dev
-        ENTRYPOINT ["uv", "run", "mcp/main.py"]
