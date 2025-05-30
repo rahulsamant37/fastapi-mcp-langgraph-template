@@ -2,7 +2,7 @@ FROM ghcr.io/astral-sh/uv:python3.13-bookworm
 
 WORKDIR /app
 COPY ./backend/mcp/uv.lock ./backend/mcp/pyproject.toml .
-RUN uv sync --frozen
+RUN uv sync --frozen && rm ./uv.lock ./pyproject.toml
 RUN apt-get update && apt-get install -y --no-install-recommends \
   curl && \
   curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
