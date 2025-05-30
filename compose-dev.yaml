@@ -1,0 +1,41 @@
+services:
+  api:
+    image: api:dev
+    build:
+      context: .
+      dockerfile: ./backend/api/Dockerfile
+    entrypoint: bash -c "uv run fastapi run api/main.py --reload"
+    env_file:
+      - ./envs/shared_mcp.env
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend/api:/app/api
+      - ./backend/api/.vscode/:/app/.vscode
+      - ./backend/shared_mcp:/app/shared_mcp
+
+  mcp:
+    image: mcp:dev
+    build:
+      context: .
+      dockerfile: ./backend/mcp/Dockerfile
+    env_file:
+      - ./envs/shared_mcp.env
+    entrypoint: bash -c "uv run mcp/main.py"
+    volumes:
+      - ./backend/mcp:/app/mcp
+      - ./backend/shared_mcp:/app/shared_mcp
+
+  api-builder:
+    image: api:prod
+    build:
+      dockerfile_inline: |
+        FROM api:dev
+        ENTRYPOINT ["uv", "run", "fastapi", "run", "api/main.py"]
+
+  mcp-builder:
+    image: mcp:prod
+    build:
+      dockerfile_inline: |
+        FROM mcp:dev
+        ENTRYPOINT ["uv", "run", "mcp/main.py"]
