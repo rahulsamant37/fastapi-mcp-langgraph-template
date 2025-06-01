@@ -1,24 +1,25 @@
 [project]
-name = "backend"
+name = "api"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "bs4>=0.0.2",
-    "faker>=37.3.0",
-    "fastapi[standard]>=0.115.12",
-    "langchain>=0.3.25",
-    "langchain-community>=0.3.24",
-    "langchain-openai>=0.3.18",
-    "langchain-postgres>=0.0.13",
-    "langfuse>=2.60.6",
-    "langgraph>=0.4.7",
-    "mcp[cli]>=1.9.1",
-    "prometheus-client>=0.22.0",
-    "psycopg[binary]>=3.2.9",
-    "pydantic-settings>=2.9.1",
-    "pypdf>=5.5.0",
-    "rich>=14.0.0",
-    "sse-starlette>=2.3.5",
+    "bs4==0.0.2",
+    "faker==30.8.1",
+    "fastapi[standard]==0.115.11",
+    "langchain==0.3.6",
+    "langchain-community==0.3.4",
+    "langchain-openai==0.2.3",
+    "langfuse==2.60.2",
+    "langgraph==0.2.39",
+    "langgraph-checkpoint-postgres>=2.0.21",
+    "mcp[cli]>=1.6.0",
+    "prometheus-client==0.21.1",
+    "psycopg[binary]==3.2.3",
+    "pydantic-settings==2.6.0",
+    "pypdf==5.1.0",
+    "rich==13.9.4",
+    "sqlmodel>=0.0.24",
+    "sse-starlette==2.1.3",
 ]
