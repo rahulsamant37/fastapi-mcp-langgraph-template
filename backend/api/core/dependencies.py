@@ -1,7 +1,10 @@
-from typing import Annotated
+from contextlib import asynccontextmanager
+from typing import Annotated, AsyncGenerator
 
 from fastapi import Depends
 from langchain_openai import ChatOpenAI
+from mcp import ClientSession
+from mcp.client.sse import sse_client
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 
 from api.core.config import settings
@@ -28,3 +31,14 @@ def get_engine() -> AsyncEngine:
 
 
 EngineDep = Annotated[AsyncEngine, Depends(get_engine)]
+
+
+@asynccontextmanager
+async def mcp_sse_client() -> AsyncGenerator[ClientSession, None]:
+    async with sse_client(f"http://mcp:{settings.mcp_server_port}/sse") as (
+        read_stream,
+        write_stream,
+    ):
+        async with ClientSession(read_stream, write_stream) as session:
+            await session.initialize()
+            yield session

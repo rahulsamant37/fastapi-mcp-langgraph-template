@@ -1,25 +1,12 @@
-from contextlib import asynccontextmanager
 from typing import Iterable
 
 from fastapi import APIRouter
-from mcp import ClientSession, types
-from mcp.client.sse import sse_client
+from mcp import types
 
-from api.core.config import settings
+from api.core.dependencies import mcp_sse_client
 from shared_mcp.models import ToolRequest
 
 router = APIRouter(prefix="/mcps", tags=["mcps"])
-
-
-@asynccontextmanager
-async def mcp_sse_client():
-    async with sse_client(f"http://mcp:{settings.mcp_server_port}/sse") as (
-        read_stream,
-        write_stream,
-    ):
-        async with ClientSession(read_stream, write_stream) as session:
-            await session.initialize()
-            yield session
 
 
 @router.get("/list-tools")
