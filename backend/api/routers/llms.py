@@ -1,17 +1,17 @@
 from typing import AsyncGenerator
 
 import psycopg.errors
-from config import settings
 from fastapi import APIRouter
 from langchain_core.messages import HumanMessage
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
-from logs import print, uvicorn
 from psycopg_pool import AsyncConnectionPool
 from sse_starlette.sse import EventSourceResponse
 from starlette.responses import Response
 
-from api.agent.orchestration import get_config, get_graph
-from api.dependencies import LLMDep
+from api.core.agent.orchestration import get_config, get_graph
+from api.core.config import settings
+from api.core.dependencies import LLMDep
+from api.core.logs import print, uvicorn
 
 router = APIRouter(tags=["chat"])
 

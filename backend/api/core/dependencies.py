@@ -1,9 +1,10 @@
 from typing import Annotated
 
-from config import settings
 from fastapi import Depends
 from langchain_openai import ChatOpenAI
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
+
+from api.core.config import settings
 
 
 def get_llm() -> ChatOpenAI:

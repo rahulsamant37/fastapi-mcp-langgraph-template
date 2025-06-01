@@ -1,11 +1,11 @@
 from contextlib import asynccontextmanager
 from typing import Iterable
 
-from config import settings
 from fastapi import APIRouter
 from mcp import ClientSession, types
 from mcp.client.sse import sse_client
 
+from api.core.config import settings
 from shared_mcp.models import ToolRequest
 
 router = APIRouter(prefix="/mcps", tags=["mcps"])

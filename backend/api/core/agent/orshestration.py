@@ -9,7 +9,7 @@ from langgraph.graph import MessagesState, StateGraph
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from api.agent.prompts import SYSTEM_PROMPT
+from api.core.agent.prompts import SYSTEM_PROMPT
 
 
 class State(MessagesState):
