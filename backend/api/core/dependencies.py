@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from typing import Annotated
+from typing import Annotated, AsyncGenerator
 
 from fastapi import Depends
 from langchain_mcp_adapters.tools import load_mcp_tools
@@ -36,7 +36,7 @@ EngineDep = Annotated[AsyncEngine, Depends(get_engine)]
 
 
 @asynccontextmanager
-async def setup_graph():
+async def setup_graph() -> AsyncGenerator[Resource]:
     async with checkpointer_context(
         settings.checkpoint_conn_str
     ) as checkpointer:

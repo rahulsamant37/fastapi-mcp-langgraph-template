@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from typing import AsyncGenerator
 
 import psycopg
 import psycopg.errors
@@ -10,7 +11,9 @@ from api.core.logs import uvicorn
 
 
 @asynccontextmanager
-async def checkpointer_context(conn_str: str):
+async def checkpointer_context(
+    conn_str: str,
+) -> AsyncGenerator[AsyncPostgresSaver]:
     """
     Async context manager that sets up and yields a LangGraph checkpointer.
 
