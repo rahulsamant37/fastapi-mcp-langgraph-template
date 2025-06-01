@@ -3,7 +3,7 @@ from typing import Iterable
 from fastapi import APIRouter
 from mcp import types
 
-from api.core.dependencies import mcp_sse_client
+from api.core.mcps import mcp_sse_client
 from shared_mcp.models import ToolRequest
 
 router = APIRouter(prefix="/mcps", tags=["mcps"])

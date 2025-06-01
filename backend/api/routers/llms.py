@@ -58,9 +58,12 @@ async def stream_graph(
     query: str,
     llm: LLMDep,
 ) -> AsyncGenerator[dict[str, str], None]:
-    async with setup_graph() as resources:
-        checkpointer, tools, _ = resources
-        graph = get_graph(llm, tools=tools, checkpointer=checkpointer)
+    async with setup_graph() as resource:
+        graph = get_graph(
+            llm,
+            tools=resource.tools,
+            checkpointer=resource.checkpointer,
+        )
         config = get_config()
         events = dict(messages=[HumanMessage(content=query)])
 
