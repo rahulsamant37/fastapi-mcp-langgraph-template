@@ -1,24 +1,20 @@
-from typing import Annotated, Iterable
+from typing import Annotated
 
+from config import settings
 from fastapi import Depends
 from langchain_openai import ChatOpenAI
 
-from config import settings
 
-
-def llm_factory() -> ChatOpenAI:
-    llm = ChatOpenAI(
+def get_llm() -> ChatOpenAI:
+    return ChatOpenAI(
         streaming=True,
         model=settings.model,
         temperature=0,
         api_key=settings.openai_api_key,
         stream_usage=True,
     )
-    return llm
 
 
-def get_llm_session() -> Iterable[ChatOpenAI]:
-    yield llm_factory()
+LLMDep = Annotated[ChatOpenAI, Depends(get_llm)]
 
 
-LLMDep = Annotated[ChatOpenAI, Depends(get_llm_session)]
