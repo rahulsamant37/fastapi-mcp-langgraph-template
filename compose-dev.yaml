@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./backend/api/Dockerfile
-    entrypoint: bash -c "uv run fastapi run api/main.py --reload"
+    entrypoint: uv run fastapi run api/main.py --root-path=/api --reload
     env_file:
       - ./envs/shared_mcp.env
     ports:
@@ -21,6 +21,15 @@ services:
       dockerfile: ./backend/mcp/Dockerfile
     env_file:
       - ./envs/shared_mcp.env
+    ports:
+      - 8050:8050
     volumes:
       - ./backend/mcp:/app/mcp
       - ./backend/shared_mcp:/app/shared_mcp
+
+  nginx:
+    image: nginx:1.26.3-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
