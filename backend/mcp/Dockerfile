@@ -11,3 +11,4 @@ COPY ./backend/mcp ./mcp
 COPY ./backend/shared_mcp ./shared_mcp
 ENV PYTHONPATH /app:$PYTHONPATH
 ENTRYPOINT ["uv", "run", "mcp/main.py"]
+
