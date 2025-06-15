@@ -39,3 +39,4 @@
   - :dollar: Deploy live demo to [![Fargate](https://img.shields.io/badge/Fargate-white.svg?logo=awsfargate)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html)
   - Provision with [![Terraform](https://img.shields.io/github/stars/hashicorp/terraform?logo=terraform&label=Terraform)](https://github.com/hashicorp/terraform) IaC
   - Push built images to ECR and Dockerhub
+
