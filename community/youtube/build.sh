@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker run --rm -it --entrypoint sh \
+docker run --rm --entrypoint sh \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --workdir /app \
   docker:dind \
