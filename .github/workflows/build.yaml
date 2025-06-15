@@ -26,4 +26,12 @@ jobs:
           ./community/youtube/build.sh
           docker compose build
 
+      - name: Run docker compose
+        uses: hoverkraft-tech/compose-actions@v2.0.1
+        with:
+          compose-files: "compose-dev.yaml"
+
+
+
+
 
