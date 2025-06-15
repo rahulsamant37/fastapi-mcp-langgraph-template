@@ -8,7 +8,10 @@
   - [Features](#features)
 <!--toc:end-->
 
+
 ## Video Demo
+
+The start of the video shows how you can get your `POSTGRES_DSN` URL.
 
 ![Supabase](./assets/supabase.mp4)
 
