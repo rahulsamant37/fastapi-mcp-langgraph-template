@@ -7,6 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      MCP_SERVER_PORT: ${{ secrets.MCP_SERVER_PORT }}
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      POSTGRES_DSN: ${{ secrets.POSTGRES_DSN }}
 
     steps:
       - uses: actions/checkout@v4.2.2
