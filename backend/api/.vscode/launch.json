@@ -12,6 +12,7 @@
             "args": [
                 "run",
                 "api/main.py",
+                "--root-path=/api",
                 "--reload"
             ]
         }
