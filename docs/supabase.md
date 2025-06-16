@@ -27,3 +27,4 @@ Visit [here](https://supabase.com/) for a full list of features and learn more.
   - Auto Generated from Table Schema
 - Self Host for free
 - Free Cloud usage for rapid prototyping
+

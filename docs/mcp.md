@@ -81,3 +81,4 @@ Simply plug in this MCP to enable LLM to:
 ## Custom MCP
 
 Should you require a custom MCP, a template is provided [here](https://github.com/NicholasGoh/fastapi-mcp-langgraph-template/blob/main/backend/shared_mcp/tools.py) for you to reference in development.
+
