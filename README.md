@@ -47,6 +47,7 @@ Visit the Github: [![FastAPI MCP LangGraph Template](https://img.shields.io/gith
 - [![FastAPI](https://img.shields.io/github/stars/fastapi/fastapi?logo=fastapi&label=fastapi)](https://github.com/fastapi/fastapi) for Python backend API
 - [![SQLModel](https://img.shields.io/github/stars/fastapi/sqlmodel?logo=sqlmodel&label=SQLModel)](https://github.com/fastapi/sqlmodel) for Python SQL database interactions (ORM + Validation).
   - Wrapper of [![SQLAlchemy](https://img.shields.io/github/stars/sqlalchemy/sqlalchemy?logo=sqlalchemy&label=SQLAlchemy)](https://github.com/sqlalchemy/sqlalchemy)
+- [![LangFuse](https://img.shields.io/github/stars/langfuse/langfuse?logo=langfuse&label=LangFuse)](https://github.com/langfuse/langfuse) for LLM Observability and LLM Metrics
 - [![Pydantic](https://img.shields.io/github/stars/pydantic/pydantic?logo=pydantic&label=Pydantic)](https://github.com/pydantic/pydantic) for Data Validation and Settings Management.
 - [![Supabase](https://img.shields.io/github/stars/supabase/supabase?logo=supabase&label=Supabase)](https://github.com/supabase/supabase) for DB RBAC
   - [![PostgreSQL](https://img.shields.io/github/stars/postgres/postgres?logo=postgresql&label=Postgres)](https://github.com/postgres/postgres) Relational DB
@@ -56,7 +57,6 @@ Visit the Github: [![FastAPI MCP LangGraph Template](https://img.shields.io/gith
 
 ### Planned Features
 
-- [![LangFuse](https://img.shields.io/github/stars/langfuse/langfuse?logo=langfuse&label=LangFuse)](https://github.com/langfuse/langfuse) for LLM Observability and LLM Metrics
 - [![Prometheus](https://img.shields.io/github/stars/prometheus/prometheus?logo=prometheus&label=Prometheus)](https://github.com/prometheus/prometheus) for scraping Metrics
 - [![Grafana](https://img.shields.io/github/stars/prometheus/prometheus?logo=grafana&label=Grafana)](https://github.com/grafana/grafana) for visualizing Metrics
 - [![Auth0](https://img.shields.io/badge/Auth0-white?logo=auth0)](https://auth0.com/docs) SaaS for Authentication and Authorization with OIDC & JWT via OAuth 2.0
