@@ -10,6 +10,7 @@ from langgraph.graph.state import CompiledStateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
 from api.core.agent.prompts import SYSTEM_PROMPT
+from api.core.dependencies import LangfuseHandlerDep
 
 
 class State(MessagesState):
@@ -70,7 +71,8 @@ def get_graph(
     return graph_factory(worker_node, tools, checkpointer, name)
 
 
-def get_config():
+def get_config(langfuse_handler: LangfuseHandlerDep):
     return dict(
         configurable=dict(thread_id="1"),
+        callbacks=[langfuse_handler],
     )

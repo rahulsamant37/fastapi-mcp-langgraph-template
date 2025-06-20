@@ -71,3 +71,4 @@ async def stream_graph(
             if event.get("event").endswith("end"):
                 print(event)
             yield dict(data=event)
+
