@@ -4,6 +4,7 @@ from typing import Annotated, AsyncGenerator
 from fastapi import Depends
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langchain_openai import ChatOpenAI
+from langfuse.callback import CallbackHandler
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 
 from api.core.agent.persistence import checkpointer_context
@@ -47,3 +48,17 @@ async def setup_graph() -> AsyncGenerator[Resource]:
                 tools=tools,
                 session=session,
             )
+
+
+def get_langfuse_handler() -> CallbackHandler:
+
+    return CallbackHandler(
+        public_key=settings.langfuse_public_key,
+        secret_key=settings.langfuse_secret_key,
+        host=settings.langfuse_host,
+        session_id=settings.environment,
+        environment=settings.environment,
+    )
+
+
+LangfuseHandlerDep = Annotated[CallbackHandler, Depends(get_langfuse_handler)]
