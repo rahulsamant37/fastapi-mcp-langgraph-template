@@ -8,7 +8,9 @@ from api.core.config import settings
 
 
 @asynccontextmanager
-async def mcp_sse_client() -> AsyncGenerator[ClientSession]:
+async def mcp_sse_client(Add commentMore actions
+    mcp_host: str = "mcp",
+) -> AsyncGenerator[ClientSession]:
     """
     Creates and initializes an MCP client session over SSE.
 
@@ -18,10 +20,13 @@ async def mcp_sse_client() -> AsyncGenerator[ClientSession]:
     Yields:
         ClientSession: An initialized MCP client session.
     """
-    async with sse_client(f"http://mcp:{settings.mcp_server_port}/sse") as (
+    async with sse_client(
+        f"http://{mcp_host}:{settings.mcp_server_port}/sse"
+    ) as (
         read_stream,
         write_stream,
     ):
         async with ClientSession(read_stream, write_stream) as session:
             await session.initialize()
             yield session
+
