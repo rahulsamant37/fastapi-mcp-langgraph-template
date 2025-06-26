@@ -72,3 +72,4 @@ async def stream_graph(
                 print(event)
             yield dict(data=event)
 
+

@@ -76,3 +76,4 @@ def get_config(langfuse_handler: LangfuseHandlerDep):
         configurable=dict(thread_id="1"),
         callbacks=[langfuse_handler],
     )
+
